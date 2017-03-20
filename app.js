@@ -26,23 +26,19 @@ $('.button').on('click', function(){
 	    console.log(response);
 
 	    for (var i = 0; i < results.length; i++) {
-	    var imgUrl = results[i].images.fixed_height_small.url;
-	    var imgUrlstill = results[i].images.fixed_height_small_still.url;
+	    var imgUrl = results[i].images.fixed_height.url;
+	    var imgUrlstill = results[i].images.fixed_height_still.url;
 
 	    // Make a div with jQuery and store it in a variable named animalDiv.
 	    var artistDiv = $('<div>');
 	    // Make a paragraph tag with jQuery and store it in a variable named p.
 	    var p = $('<p>');
-	    // Set the inner text of the paragraph to the rating of the image in var
-	    p.html(results[i].source);
+	    // Set the inner text of the paragraph to the source of the image in var
+	    // p.html(results[i].source);
 	    // Make an image tag with jQuery and store it in a variable named animalImage.
 	    var artistImage = $('<img>');
 	    // <img src="http://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" data-still="http://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" data-animate="http://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200.gif" data-state="still" class="gif">
-	    artistImage.attr('src',imgUrlstill);
-	    artistImage.attr('class','gif');
-	    artistImage.attr('data-state','still');
-	    artistImage.attr('data-still', imgUrlstill);
-	    artistImage.attr('data-animate',imgUrl);
+	    artistImage.attr('src',imgUrlstill).attr('class','gif img img-responsive col-xs-12 col-sm-3').attr('data-state','still').attr('data-still', imgUrlstill).attr('data-animate',imgUrl);
 
 	    artistDiv.prepend(artistImage);
 	    artistDiv.prepend(p);
