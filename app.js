@@ -67,3 +67,20 @@ $(document).on("click", ".gif", function() {
 
 });
 
+$('#add-artist').off('click').on('click', function(event){
+	//prevent page reload
+	event.preventDefault();
+
+	// store inputted cal in var
+	var newArtist = $('#artist-name').val().trim();
+
+	var newButton = $('<button>');
+
+	newButton.html(newArtist);
+	newButton.attr('class','button')
+	newButton.attr('data-person', newArtist);
+	//make sure that button isn't a duplicate or empty?
+	$('#buttons').prepend(newButton);
+});
+
+
