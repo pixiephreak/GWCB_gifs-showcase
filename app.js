@@ -1,4 +1,4 @@
-var artists = ['Gloria Trevi','Princess Nokia', 'Missy Elliot', 'Trina', 'Mary J. Blige','Rihanna','MIA','Beyonce','Fever Ray', 'Dolly Parton', 'Donna Summer', 'Miley Cyrus','Bjork','Ciara','Patty Smith','Portishead', 'Austra', 'Le1f','Mykki Blanco', 'Grace Jones'];
+var artists = ['Reba McEntire','Gloria Trevi', 'Trina', 'Rihanna','MIA','Beyonce','Fever Ray', 'Princess Nokia','Dolly Parton', 'Donna Summer', 'Miley Cyrus','Missy Elliot','Bjork','Ciara','Patty Smith','Portishead', 'Austra', 'Mary J. Blige','Le1f','Mykki Blanco', 'Grace Jones'];
 
 artists.forEach(function(artist){
 	var thisButton = $('<button>');
