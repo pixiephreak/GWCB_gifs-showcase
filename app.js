@@ -74,12 +74,24 @@ $('#add-artist').off('click').on('click', function(event){
 	newButton.html(newArtist);
 	newButton.attr('class','button')
 	newButton.attr('data-person', newArtist);
+	console.log(newButton.html());
 	//make sure that button isn't a duplicate or empty?
 	if(newButton.html() != ''){
 		console.log(newButton.html());
 		$('#buttons').prepend(newButton);
+		//duznt werk
+	}else if(checkName()){
+		alert('already on the list');
 	}
 
 });
+
+function checkName(thisArtist){
+	artists.forEach(function(artist){
+		if(thisArtist === artist){
+			return true;
+		}
+	})
+}
 
 
