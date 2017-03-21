@@ -81,7 +81,10 @@ $('#add-artist').off('click').on('click', function(event){
 	newButton.attr('class','button')
 	newButton.attr('data-person', newArtist);
 	//make sure that button isn't a duplicate or empty?
-	$('#buttons').prepend(newButton);
+	if(newButton.html() != ''){
+		$('#buttons').prepend(newButton);
+	}
+
 });
 
 
