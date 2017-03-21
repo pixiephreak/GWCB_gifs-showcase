@@ -5,12 +5,10 @@ artists.forEach(function(artist){
 	thisButton.html(artist);
 	thisButton.attr('class','button')
 	thisButton.attr('data-person', artist);
-	console.log(thisButton);
 	$('#buttons').append(thisButton);
 });
 
 $(document).on('click', '.button', function(){
-	console.log('click');
 	var person = $(this).attr("data-person");
 	//api enpoint concatenated with the celeb
 	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -21,9 +19,7 @@ $(document).on('click', '.button', function(){
 	    method: "GET"
 	  })
 	  .done(function(response) {
-	    console.log(response.data);
 	    var results = response.data;
-	    console.log(response);
 
 	    for (var i = 0; i < results.length; i++) {
 	    var imgUrl = results[i].images.fixed_width.url;
@@ -55,8 +51,6 @@ $(document).on('click', '.button', function(){
 $(document).on("click", ".gif", function() {
 
    var state = $(this).attr('data-state');
-   console.log(state);
-   console.log(state);
 
   if ($(this).attr('data-state') == 'still'){
     $(this).attr('src', $(this).attr('data-animate'));
@@ -82,6 +76,7 @@ $('#add-artist').off('click').on('click', function(event){
 	newButton.attr('data-person', newArtist);
 	//make sure that button isn't a duplicate or empty?
 	if(newButton.html() != ''){
+		console.log(newButton.html());
 		$('#buttons').prepend(newButton);
 	}
 
