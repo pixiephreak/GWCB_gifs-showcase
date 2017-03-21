@@ -2,6 +2,7 @@ body {
 	background-color: #666;
 }
 
-img {
-	float(left);
+form {
+	background-color: #fff;
+	padding: 4em;
 }

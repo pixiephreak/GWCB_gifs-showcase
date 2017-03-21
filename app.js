@@ -9,12 +9,12 @@ artists.forEach(function(artist){
 	$('#buttons').append(thisButton);
 });
 
-$('.button').on('click', function(){
+$(document).on('click', '.button', function(){
 	console.log('click');
 	var person = $(this).attr("data-person");
 	//api enpoint concatenated with the celeb
 	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
-	  person + "&api_key=dc6zaTOxFJmzC&limit=10";
+	  person + "&api_key=dc6zaTOxFJmzC&limit=12";
 	  //call
 	$.ajax({
 	    url: queryURL,
@@ -26,24 +26,25 @@ $('.button').on('click', function(){
 	    console.log(response);
 
 	    for (var i = 0; i < results.length; i++) {
-	    var imgUrl = results[i].images.fixed_height.url;
-	    var imgUrlstill = results[i].images.fixed_height_still.url;
+	    var imgUrl = results[i].images.fixed_width.url;
+	    var imgUrlstill = results[i].images.fixed_width_still.url;
 
 	    // Make a div with jQuery and store it in a variable named animalDiv.
-	    var artistDiv = $('<div>');
+	    var artistFig = $('<figure>');
+	    artistFig.attr('class','figure col-xs-6 col-md-4');
 	    // Make a paragraph tag with jQuery and store it in a variable named p.
-	    var p = $('<p>');
-	    // Set the inner text of the paragraph to the source of the image in var
-	    // p.html(results[i].source);
+	    var figcap = $('<figcaption>');
+	    // Set the inner text of the paragraph to the rating of the image in var
+	    figcap.html(results[i].rating).attr('class','figure-caption text-center');
 	    // Make an image tag with jQuery and store it in a variable named animalImage.
 	    var artistImage = $('<img>');
 	    // <img src="http://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" data-still="http://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" data-animate="http://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200.gif" data-state="still" class="gif">
-	    artistImage.attr('src',imgUrlstill).attr('class','gif img img-responsive col-xs-12 col-sm-3').attr('data-state','still').attr('data-still', imgUrlstill).attr('data-animate',imgUrl);
+	    artistImage.attr('src',imgUrlstill).attr('class','gif figure-img img-fluid img-thumbnail').attr('data-state','still').attr('data-still', imgUrlstill).attr('data-animate',imgUrl);
 
-	    artistDiv.prepend(artistImage);
-	    artistDiv.prepend(p);
+	    artistFig.prepend(figcap);
+	    artistFig.prepend(artistImage);
 
-	    $('#gifs-appear-here').prepend(artistDiv);
+	    $('#gifs-appear-here').prepend(artistFig);
 
 	    }
 	})
